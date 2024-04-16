@@ -5,6 +5,7 @@ import { Input } from "../atom-components/Input"
 import { Modal } from "../atom-components/Modal"
 import { FoodCartContext } from "../context/FoodCartContext"
 import { OrderCompleteModal } from "../order-completed/OrderCompleteModal"
+import { formatter } from "../../utils/formatter"
 
 export function CheckOutModal({
   totalPrice,
@@ -52,7 +53,7 @@ export function CheckOutModal({
         <Modal open={isCheckOutOpen} onClose={handleCheckOutClose}>
           <form onSubmit={handleFormSubmit}>
             <h2>Checkout</h2>
-            <p>Total Amount: {totalPrice}</p>
+            <p>Total Amount: {formatter.format(totalPrice)}</p>
             <Input id="name" label="Full Name" type="text" />
             <Input id="email" label="E-mail Address" type="email" />
             <Input id="street" label="Street" type="text" />
